@@ -1,0 +1,40 @@
+services:
+  eureka:
+    build: eureka
+    container_name: eureka-service
+    image: levinine/codenine/eureka
+    ports: 
+    - "8761:8761"
+  library:
+    build: library
+    container_name: library-service
+    image: levinine/codenine/library
+    ports:
+      - "10001:8080"
+    depends_on:
+      - eureka
+    entrypoint: 
+      - "java"
+      - "-jar"
+      - "-DEUREKA_SERVER=http://eureka-service:8761/eureka"
+      - "-DLIBRARY_SERVICE_PORT=8080"
+      - "app.jar"
+  gateway:
+    build: gateway
+    container_name: gateway-service
+    image: levinine/codenine/gateway
+    ports:
+      - "10002:8080"
+    depends_on:
+      - eureka
+    entrypoint: 
+      - "java"
+      - "-jar"
+      - "-DEUREKA_SERVER=http://eureka-service:8761/eureka"
+      - "-DGATEWAY_SERVICE_PORT=8080"
+      - "app.jar"
+
+networks:
+  codenine-eureka:
+    driver: build
+

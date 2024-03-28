@@ -1,0 +1,17 @@
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  renewalPercentThreshold: 0.85
+  renewalThresholdUpdateIntervalMs: 1000
+
+logging.level.com.netflix:
+  eureka: INFO
+  discovery: INFO
+
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka
