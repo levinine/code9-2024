@@ -19,10 +19,10 @@ services:
       - "-DEUREKA_SERVER=http://eureka-service:8761/eureka"
       - "-DLIBRARY_SERVICE_PORT=8080"
       - "app.jar"
-  gateway:
-    build: gateway
-    container_name: gateway-service
-    image: levinine/codenine/gateway
+  user-profile:
+    build: user-profile
+    container_name: user-profile-service
+    image: levinine/codenine/user-profile
     ports:
       - "10002:8080"
     depends_on:
@@ -31,7 +31,7 @@ services:
       - "java"
       - "-jar"
       - "-DEUREKA_SERVER=http://eureka-service:8761/eureka"
-      - "-DGATEWAY_SERVICE_PORT=8080"
+      - "-DUSER_PROFILE_SERVICE_PORT=8080"
       - "app.jar"
 
 networks:

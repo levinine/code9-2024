@@ -1,0 +1,11 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
+
+server:
+  port: ${USER_PROFILE_SERVICE_PORT:8080}
+
+spring:
+  application:
+    name: user-profile-service
