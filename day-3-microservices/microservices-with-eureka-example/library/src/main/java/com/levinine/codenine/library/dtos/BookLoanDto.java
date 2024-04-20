@@ -6,7 +6,7 @@ import com.levinine.codenine.library.entities.BookLoan;
 import java.time.LocalDate;
 
 @JsonInclude(Include.NON_NULL)
-public record BookLoanDto(Long Id, BookDto bookDto, LocalDate reserveDate, LocalDate dueDate,
+public record BookLoanDto(Long Id, BookDto book, LocalDate reserveDate, LocalDate dueDate,
                           LocalDate returnDate) {
 
   public static BookLoanDto fromBookLoan(BookLoan bookLoan) {
