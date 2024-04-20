@@ -22,7 +22,7 @@ public class UserProfileService {
     return UserProfileDto.fromUserProfile(userProfile);
   }
 
-  public UserProfileDto findUserProfileByLibraryCardId(String libraryCardId) {
+  public UserProfileDto findByLibraryCardId(String libraryCardId) {
     final UserProfile userProfile = userProfileRepository.findByLibraryCardId(libraryCardId)
         .orElseThrow(() -> new EntityNotFoundException(
             String.format("User with library card %s not found", libraryCardId)));

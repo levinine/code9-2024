@@ -10,6 +10,5 @@ CREATE TABLE user_profile (
 INSERT INTO user_profile (id, first_name, last_name, address, library_card_id) VALUES
 (1, 'Mike', 'Smith', 'Cemetery Lane 23', '111-222'),
 (2, 'Jane', 'Johnson', 'West 81st Street', '333-444'),
-(3, 'Iggy', 'Pop', '742 Evergreen Terrace', '555-666');
-
-ALTER TABLE user_profile ALTER COLUMN id RESTART WITH 4;
+(3, 'Iggy', 'Pop', '742 Evergreen Terrace', '555-666'),
+(4, 'Sophie', 'Marceau', 'Avenue George V', '777-888');

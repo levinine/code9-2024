@@ -22,8 +22,8 @@ public class UserProfileController {
   }
 
   @GetMapping
-  public UserProfileDto findByCardMemberId(@RequestParam String cardMemberId) {
-    return userProfileService.findUserProfileByLibraryCardId(cardMemberId);
+  public UserProfileDto findByLibraryCardId(@RequestParam String libraryCardId) {
+    return userProfileService.findByLibraryCardId(libraryCardId);
   }
 
 }
