@@ -1,0 +1,28 @@
+spring:
+  application.name: monolith
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: sa
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true # Format SQL queries for better readability
+    show-sql: true
+  sql:
+    init:
+      mode: embedded
+
+application:
+  security:
+    jwt:
+      secret-key: 472D4B6150645367566B59703373357638792F423F4528482B4D625165546857 # Secret key used to sign and verify JWT tokens
+      expiration: 3600000 # Expiration time for access tokens in milliseconds, here it's 1 minute
