@@ -1,0 +1,8 @@
+{
+  "roomId" : 1,
+  "checkInDate": "2024-07-23",
+  "checkOutDate": "2024-07-30",
+  "guestName": "John",
+  "guestContactInfo": "john@gmail.com",
+  "numberOfGuests": 2
+}

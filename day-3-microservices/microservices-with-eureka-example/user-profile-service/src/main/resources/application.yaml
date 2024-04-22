@@ -4,13 +4,13 @@ eureka:
       defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
 
 server:
-  port: ${LIBRARY_SERVICE_PORT:8080}
+  port: ${USER_PROFILE_SERVICE_PORT:8082}
 
 spring:
   application:
-    name: library-service
+    name: user-profile-service
   datasource:
-    url: jdbc:h2:mem:library
+    url: jdbc:h2:mem:user-profile
     username: admin
     password:
     driverClassName: org.h2.Driver
@@ -22,7 +22,6 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
-    defer-datasource-initialization: true
     show-sql: true
   sql:
     init:

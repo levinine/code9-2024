@@ -1,0 +1,22 @@
+{
+  "name": "Blue Horizon Apartments",
+  "address": "Sunset Boulevard 34",
+  "contactPhone": "345-433-023",
+  "rooms" : [
+    {
+      "roomNumber": 601,
+      "price": 234,
+      "status": "AVAILABLE"
+    },
+    {
+      "roomNumber": 602,
+      "price": 550,
+      "status": "AVAILABLE"
+    },
+    {
+      "roomNumber": 603,
+      "price": 1000,
+      "status": "AVAILABLE"
+    }
+  ]
+}
