@@ -1,0 +1,20 @@
+1. Grenerate  new maven project using mvn archetype:generate command with archetype template maven-archetype-quickstart - mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart
+2. Configure maven.compiler.source and maven.compiler.target to desired version of Java
+ <properties>
+    <maven.compiler.source>1.17</maven.compiler.source>
+    <maven.compiler.target>1.17</maven.compiler.target>
+  </properties>
+3. Generate two more projects and make them child projects to the first one 
+ <parent>
+    <groupId>XXX</groupId>
+    <artifactId>XXX</artifactId>
+    <version>XXX</version>
+  </parent>
+4. Play around with the dependencies, change the version of junit in child projects or in parent and check dependency tree to see the changes - mvn dependency:tree
+5. Add new dependency of your choice in <dependencyManagement> section in parent app
+6. Play around with the new dependencies, change the version of it in child projects and check dependency tree to see the changes
+7. Add version range for dependency and check the dependency tree
+8. Generate another projects, add new dependency of your choice and make it optional
+9. Add newly created project as a dependency to the parent
+10. Check the dependency tree of parent project to see what happens
+11. Add maven wrapper to one of the child projects
