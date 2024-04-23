@@ -5,11 +5,31 @@ import practice.Person;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static practice.FunWithStreams.personList;
 import static practice.FunWithStreams.simpleStrings;
 
 public class Results {
+
+    public static void main(String[] args) {
+        var results = new Results();
+
+        System.out.println("-------------------1-------------------");
+        results.resultOne();
+        System.out.println("-------------------2-------------------");
+        results.resultTwo();
+        System.out.println("-------------------3-------------------");
+        results.resultThree();
+        System.out.println("-------------------4-------------------");
+        results.resultFour();
+        System.out.println("-------------------5-------------------");
+        results.resultFive();
+        System.out.println("-------------------6-------------------");
+        results.resultSix();
+        System.out.println("-------------------7-------------------");
+        results.resultSeven();
+    }
 
     /*
      * Print the count of empty Strings
@@ -68,5 +88,32 @@ public class Results {
                     System.out.println("City: " + city);
                     peopleInCity.forEach(person -> System.out.println("  " + person.getName() + " " + person.getSurname()));
                 });
+    }
+
+    /* List all the cities persons are from */
+    public void resultSix() {
+        personList.stream()
+                .map(Person::getCity)
+                .distinct()
+                .sorted()
+                .forEach(System.out::println);
+    }
+
+    /*
+     * Move exactly one person from these cities
+     * ["Novi Sad", "Beograd", "Subotica"]
+     * to Kragujevac and print the result
+     */
+    public void resultSeven() {
+        Stream.of("Novi Sad", "Beograd", "Subotica")
+                .forEach(city -> personList.stream()
+                                .filter(person -> city.equals(person.getCity()))
+                                .findAny()
+                                .map(person -> {
+                                    person.setCity("Kragujevac");
+                                    return person;
+                                })
+                                .ifPresent(System.out::println)
+                        );
     }
 }

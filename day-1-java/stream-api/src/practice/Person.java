@@ -45,4 +45,15 @@ public class Person {
     public void setCity(String city) {
         this.city = city;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Name \"%s %s\" from at age %d from \"%s\"",
+                name,
+                surname,
+                age,
+                city
+                );
+    }
 }
