@@ -33,6 +33,12 @@ public class FunWithStreams {
 
         System.out.println("-------------------5-------------------");
         streams.exerciseFive();
+
+        System.out.println("-------------------6-------------------");
+        streams.exerciseSix();
+
+        System.out.println("-------------------7-------------------");
+        streams.exerciseSeven();
     }
 
     /*
@@ -101,24 +107,73 @@ public class FunWithStreams {
      */
     public void exerciseFive() {
         Map<String, List<Person>> peopleByCity = new HashMap<>();
+        String city;
 
         for (Person person : personList) {
-            String city = person.getCity();
-            List<Person> peopleInCity = peopleByCity.get(city);
-            if (peopleInCity == null) {
-                peopleInCity = new ArrayList<>();
-                peopleByCity.put(city, peopleInCity);
-            }
-            peopleInCity.add(person);
+            city = person.getCity();
+
+            peopleByCity.computeIfPresent(city, (cityName, personsInCity) -> {
+                personsInCity.add(person);
+                return personsInCity;
+            });
+            peopleByCity.computeIfAbsent(city, (cityName) -> {
+                var list = new ArrayList<Person>();
+                list.add(person);
+                return list;
+            });
         }
 
         for (var entry : peopleByCity.entrySet()) {
-            String city = entry.getKey();
+            city = entry.getKey();
             List<Person> peopleInCity = entry.getValue();
 
             System.out.println("City: " + city);
             for (Person person : peopleInCity) {
                 System.out.println("  " + person.getName() + " " + person.getSurname());
+            }
+        }
+    }
+
+    /* List all the cities persons are from */
+    public void exerciseSix() {
+        var cities = new ArrayList<String>();
+
+        for (var person : personList) {
+            if (!cities.contains(person.getCity())) {
+                cities.add(person.getCity());
+            }
+        }
+
+        String temp;
+        for (int i = 0; i < cities.size() - 1; i++) {
+            for (int j = i + 1; j < cities.size(); j++) {
+                if (cities.get(i).compareTo(cities.get(j)) > 0) {
+                    temp = cities.get(i);
+                    cities.set(i, cities.get(j));
+                    cities.set(j, temp);
+                }
+            }
+        }
+
+        for (var city : cities) {
+            System.out.println(city);
+        }
+    }
+
+    /*
+    * Move exactly one person from these cities
+    * ["Novi Sad", "Beograd", "Subotica"]
+    * to Kragujevac and print changes persons
+     */
+    public void exerciseSeven() {
+        var cities = List.of("Novi Sad", "Beograd", "Subotica");
+        for (var city : cities) {
+            for (var person : personList) {
+                if (person.getCity().equals(city)) {
+                    person.setCity("Kragujevac");
+                    System.out.println(person);
+                    break;
+                }
             }
         }
     }
