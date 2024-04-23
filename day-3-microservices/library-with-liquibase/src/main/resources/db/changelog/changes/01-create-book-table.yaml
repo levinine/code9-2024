@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-book-table
+      author: code9
+      changes:
+        - createTable:
+            tableName: book
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: year_published
+                  type: int
+                  constraints:
+                    nullable: false
