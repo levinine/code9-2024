@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-book-table
+      author: code9
+      changes:
+        - createTable:
+            tableName: book_loan
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: loaner
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: book_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: loan_book_id_fk
+                    referencedTableName: book
+                    referencedColumnNames: id
+              - column:
+                  name: loan_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: return_date
+                  type: date
+                  constraints:
+                    nullable: true
+

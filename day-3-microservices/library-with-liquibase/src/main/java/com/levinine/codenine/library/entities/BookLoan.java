@@ -25,12 +25,9 @@ public class BookLoan {
   @ManyToOne
   private Book book;
 
-  private String libraryCardId;
+  private String loaner;
 
-  private LocalDate reserveDate;
-
-  private LocalDate dueDate;
+  private LocalDate loanDate;
 
   private LocalDate returnDate;
-
 }
