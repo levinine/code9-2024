@@ -2,3 +2,18 @@ databaseChangeLog:
   - include:
       relativeToChangelogFile: true
       file: /changes/01-create-book-table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: /changes/02-create-book-loan-table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: /changes/03-add-a-new-column-to-book-table.xml
+  - include:
+      relativeToChangelogFile: true
+      file: /changes/04-rename-a-column.json
+  - include:
+      relativeToChangelogFile: true
+      file: /changes/05-insert-data.sql
+  - include:
+      relativeToChangelogFile: true
+      file: /changes/06-add-index-to-book-loan-table.yaml

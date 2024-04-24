@@ -1,0 +1,18 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet":  {
+        "id":  "rename-a-column",
+        "author":  "code9",
+        "changes":  [{
+          "renameColumn":  {
+            "columnDataType":  "int",
+            "newColumnName":  "title",
+            "oldColumnName":  "name",
+            "tableName":  "book"
+          }
+        }]
+      }
+    }
+  ]
+}
