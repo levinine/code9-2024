@@ -42,8 +42,8 @@ public class AppConfigs {
     SecurityFilterChain web(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers(new AntPathRequestMatcher("/h2/**")).permitAll()
-                        .requestMatchers("/users/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/books", "/books/**").permitAll()
+                        .requestMatchers("/v1/users/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/v1/books", "/v1/books/**").permitAll()
                         .anyRequest().authenticated()
                 ).sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
