@@ -4,7 +4,7 @@ databaseChangeLog:
       author: code9
       changes:
         - createTable:
-            tableName: book
+            tableName: book_loan
             columns:
               - column:
                   name: id
@@ -14,12 +14,26 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: name
+                  name: loaner
                   type: varchar(255)
                   constraints:
                     nullable: false
               - column:
-                  name: year_published
+                  name: book_id
                   type: int
                   constraints:
                     nullable: false
+                    foreignKeyName: loan_book_id_fk
+                    referencedTableName: book
+                    referencedColumnNames: id
+              - column:
+                  name: loan_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: return_date
+                  type: date
+                  constraints:
+                    nullable: true
+

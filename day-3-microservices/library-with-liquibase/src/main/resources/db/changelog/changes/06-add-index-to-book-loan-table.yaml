@@ -1,0 +1,14 @@
+databaseChangeLog:
+  -  changeSet:
+       id: add-index-to-book-loan-table
+       author: code9
+       changes:
+         - createIndex:
+             clustered:  true
+             columns:
+               - column:
+                   descending:  true
+                   name:  loaner
+             indexName:  idx_loaner
+             tableName:  book_loan
+             unique:  true

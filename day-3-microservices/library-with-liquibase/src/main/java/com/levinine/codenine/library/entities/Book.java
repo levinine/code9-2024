@@ -14,7 +14,9 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private String name;
+    private String title;
 
     private Integer yearPublished;
+
+    private Boolean hardcover;
 }

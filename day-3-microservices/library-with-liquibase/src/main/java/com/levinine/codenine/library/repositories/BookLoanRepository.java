@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BookLoanRepository extends JpaRepository<BookLoan, Long> {
 
-  List<BookLoan> findAllByLibraryCardId(String libraryCardId);
+  List<BookLoan> findAllByLoaner(String loaner);
 }

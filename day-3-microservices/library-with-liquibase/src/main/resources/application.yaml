@@ -1,15 +1,7 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
-
 server:
-  port: ${LIBRARY_SERVICE_PORT:8080}
+  port: 8080
 
 spring:
-  liquibase:
-    enabled: true
-    change-log: classpath:/db/changelog/db.changelog-master.yaml
   application:
     name: library-service
   datasource:
@@ -25,7 +17,6 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: none
-    defer-datasource-initialization: false
     show-sql: true
 
 logging:
