@@ -44,11 +44,11 @@ public class JwtServiceImpl implements JwtService {
     }
 
     @Override
-    public boolean isTokeValid(Claims claims, UserDetails userDetails) {
+    public boolean isTokenValid(Claims claims, UserDetails userDetails) {
         if (claims.getExpiration().getTime() < System.currentTimeMillis()) {
             return false;
         }
-        return claims.getSubject().equals(userDetails.getUsername());
+        return claims.get("username", String.class).equals(userDetails.getUsername());
     }
 
     @Override

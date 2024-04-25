@@ -8,6 +8,8 @@ import com.example.splitting.monolith.exceptions.UnauthorizedException;
 import com.example.splitting.monolith.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,5 +53,23 @@ public class UserController {
     LoginResponseDto login(@RequestBody SaveUserDto dto) throws UnauthorizedException {
         var token = userService.login(dto.username(), dto.password());
         return new LoginResponseDto(token);
+    }
+
+    @Secured("ROLE_ADMIN")
+    @GetMapping(path = "/hello/admin")
+    ResponseEntity<Void> helloAdmin() {
+        return ResponseEntity.ok(null);
+    }
+
+    @Secured("ROLE_USER")
+    @GetMapping(path = "/hello/user")
+    ResponseEntity<Void> helloUser() {
+        return ResponseEntity.ok(null);
+    }
+
+    @Secured({"ROLE_ADMIN", "ROLE_USER"})
+    @GetMapping(path = "/hello/admin-user")
+    ResponseEntity<Void> helloAdminOrUser() {
+        return ResponseEntity.ok(null);
     }
 }

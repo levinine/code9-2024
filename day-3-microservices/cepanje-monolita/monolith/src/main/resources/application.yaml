@@ -21,6 +21,8 @@ spring:
     init:
       mode: embedded
 
+logging.level.org.springframework.security: TRACE
+
 application:
   security:
     jwt:

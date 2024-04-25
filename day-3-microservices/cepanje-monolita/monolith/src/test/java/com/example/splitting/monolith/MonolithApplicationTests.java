@@ -6,6 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class MonolithApplicationTests {
 
+	record MyObj(String name, Integer age, Boolean active) {}
+
 	@Test
 	void contextLoads() {
 	}
