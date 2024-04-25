@@ -4,6 +4,25 @@
       "changeSet":  {
         "id":  "rename-a-column",
         "author":  "code9",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN"
+          },
+          {
+            "onError": "MARK_RAN"
+          },
+          {
+            "tableExists": {
+              "tableName": "book"
+            }
+          },
+          {
+            "columnExists": {
+              "tableName": "book",
+              "columnName": "name"
+            }
+          }
+        ],
         "changes":  [{
           "renameColumn":  {
             "columnDataType":  "int",

@@ -2,6 +2,14 @@ databaseChangeLog:
   -  changeSet:
        id: add-index-to-book-loan-table
        author: code9
+       preConditions:
+         - onFail: MARK_RAN
+         - onError: MARK_RAN
+         - tableExists:
+              tableName: book
+         - columnExists:
+              tableName: book_loan
+              columnName: loaner
        changes:
          - createIndex:
              clustered:  true

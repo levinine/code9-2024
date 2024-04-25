@@ -2,6 +2,14 @@ databaseChangeLog:
   - changeSet:
       id: create-book-table
       author: code9
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: MARK_RAN
+        - tableExists:
+            tableName: book
+        - not:
+            tableExists:
+              tableName: book_loan
       changes:
         - createTable:
             tableName: book_loan
