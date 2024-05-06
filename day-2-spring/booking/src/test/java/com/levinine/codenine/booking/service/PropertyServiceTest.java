@@ -3,7 +3,6 @@ package com.levinine.codenine.booking.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
 import com.levinine.codenine.booking.converter.PropertyConverter;
@@ -18,6 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
@@ -28,8 +28,8 @@ class PropertyServiceTest {
   @Mock
   private PropertyRepository propertyRepository;
 
-  private final PropertyConverter propertyConverter =
-      spy(new PropertyConverter(spy(new RoomConverter())));
+  @Spy
+  private final PropertyConverter propertyConverter = new PropertyConverter(new RoomConverter());
 
   @InjectMocks
   private PropertyService propertyService;
@@ -46,7 +46,7 @@ class PropertyServiceTest {
 
     // Then
     assertNotNull(savedProperty.getId());
-    assertEquals(1, property.getId());
+    assertEquals(PROPERTY_ID, savedProperty.getId());
   }
 
   private PropertyDto buildPropertyDto() {
