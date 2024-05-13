@@ -20,7 +20,7 @@ services:
       - "-DLIBRARY_SERVICE_PORT=8080"
       - "app.jar"
   user-profile:
-    build: user-profile
+    build: user-profile-service
     container_name: user-profile-service
     image: levinine/codenine/user-profile
     ports:

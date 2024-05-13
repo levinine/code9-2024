@@ -6,11 +6,11 @@ build-library-jar:
 	cd library && \
 		mvn clean package
 
-build-gateway-jar:
-	cd gateway && \
+build-user-profile-jar:
+	cd user-profile-service && \
 		mvn clean package
 
-build-jars: build-eureka-jar build-library-jar build-gateway-jar
+build-jars: build-eureka-jar build-library-jar build-user-profile-jar
 
 dev:
 	docker-compose up -d --remove-orphans
