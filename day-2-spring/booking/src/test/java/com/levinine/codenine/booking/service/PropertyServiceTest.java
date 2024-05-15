@@ -1,7 +1,6 @@
 package com.levinine.codenine.booking.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -29,7 +28,7 @@ class PropertyServiceTest {
   private PropertyRepository propertyRepository;
 
   @Spy
-  private final PropertyConverter propertyConverter = new PropertyConverter(new RoomConverter());
+  private PropertyConverter propertyConverter = new PropertyConverter(new RoomConverter());
 
   @InjectMocks
   private PropertyService propertyService;
@@ -37,8 +36,8 @@ class PropertyServiceTest {
   @Test
   void shouldCreateProperty() {
     // Given
-    Property property = buildProperty();
     PropertyDto propertyDto = buildPropertyDto();
+    Property property = buildProperty();
     when(propertyRepository.save(any())).thenReturn(property);
 
     // When
