@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: GH1712-1
+      author: liquibase
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: MARK_RAN
+        - not:
+            tableExists:
+              tableName: borrows
+      changes:
+        - createTable:
+            tableName: borrows
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: take_time
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: return_time
+                  type: timestamp
+                  constraints:
+                    nullable: true
+              - column:
+                  name: borrower_id
+                  type: long
+                  constraints:
+                    nullable: false
+              - column:
+                  name: borrowed_book_id
+                  type: long
+                  constraints:
+                    nullable: false
+                    foreignKeyName: borrows_book_id
+                    referencedTableName: books
+                    referencedColumnNames: id

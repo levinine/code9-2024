@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - include:
+      relativeToChangelogFile: true
+      file: /changes/01-create-table-books.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: /changes/02-create-table-borrows.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: /changes/03-insert-data.sql
