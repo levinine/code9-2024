@@ -11,7 +11,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ErrorDetails> handleNotFound(NotFoundException ex, WebRequest req) {
-        ErrorDetails errorDetails = ErrorDetails.builder()
+        final var errorDetails = ErrorDetails.builder()
                 .status(HttpStatus.NOT_FOUND)
                 .message(ex.getMessage())
                 .build();
