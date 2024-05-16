@@ -1,9 +1,9 @@
-package com.levinine.codenine.library.controllers;
+package com.levinine.codenine.library.controller;
 
-import com.levinine.codenine.library.dtos.BookDto;
-import com.levinine.codenine.library.dtos.GetAllBooksDto;
+import com.levinine.codenine.library.dto.BookDto;
+import com.levinine.codenine.library.dto.GetAllBooksDto;
 import com.levinine.codenine.library.exceptions.NotFoundException;
-import com.levinine.codenine.library.services.BookService;
+import com.levinine.codenine.library.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

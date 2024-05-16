@@ -1,6 +1,6 @@
-package com.levinine.codenine.library.controllers;
+package com.levinine.codenine.library.controller;
 
-import com.levinine.codenine.library.dtos.ErrorDto;
+import com.levinine.codenine.library.dto.ErrorDto;
 import com.levinine.codenine.library.exceptions.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ public class AdvicesController {
     public ResponseEntity<ErrorDto> handleNotFound(
             NotFoundException ex, WebRequest req
     ) {
-        return new ResponseEntity<ErrorDto>(
+        return new ResponseEntity<>(
                 new ErrorDto(ex.getMessage()),
                 HttpStatus.NOT_FOUND
         );

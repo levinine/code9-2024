@@ -1,8 +1,8 @@
-package com.levinine.codenine.library.dtos;
+package com.levinine.codenine.library.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.levinine.codenine.library.entities.BookLoan;
+import com.levinine.codenine.library.entity.BookLoan;
 import java.time.LocalDate;
 
 @JsonInclude(Include.NON_NULL)

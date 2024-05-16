@@ -1,8 +1,8 @@
-package com.levinine.codenine.library.controllers;
+package com.levinine.codenine.library.controller;
 
 
-import com.levinine.codenine.library.dtos.LibraryMemberLoansDto;
-import com.levinine.codenine.library.services.BookLoanService;
+import com.levinine.codenine.library.dto.LibraryMemberLoansDto;
+import com.levinine.codenine.library.service.BookLoanService;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

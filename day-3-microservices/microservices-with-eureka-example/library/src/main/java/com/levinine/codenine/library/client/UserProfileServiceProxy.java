@@ -1,7 +1,7 @@
 package com.levinine.codenine.library.client;
 
 import com.levinine.codenine.library.client.config.UserProfileServiceConfiguration;
-import com.levinine.codenine.library.dtos.UserProfileDto;
+import com.levinine.codenine.library.dto.UserProfileDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

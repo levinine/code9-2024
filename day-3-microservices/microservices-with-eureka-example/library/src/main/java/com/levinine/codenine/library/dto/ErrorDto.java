@@ -1,4 +1,4 @@
-package com.levinine.codenine.library.dtos;
+package com.levinine.codenine.library.dto;
 
 public record ErrorDto(String message) {
 }

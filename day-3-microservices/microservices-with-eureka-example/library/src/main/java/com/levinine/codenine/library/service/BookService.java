@@ -1,7 +1,7 @@
-package com.levinine.codenine.library.services;
+package com.levinine.codenine.library.service;
 
-import com.levinine.codenine.library.dtos.GetAllBooksDto;
-import com.levinine.codenine.library.entities.Book;
+import com.levinine.codenine.library.dto.GetAllBooksDto;
+import com.levinine.codenine.library.entity.Book;
 
 import java.util.List;
 import java.util.Optional;

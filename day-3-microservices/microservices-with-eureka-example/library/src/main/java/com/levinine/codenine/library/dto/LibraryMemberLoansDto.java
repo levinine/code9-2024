@@ -1,4 +1,4 @@
-package com.levinine.codenine.library.dtos;
+package com.levinine.codenine.library.dto;
 
 import java.util.List;
 

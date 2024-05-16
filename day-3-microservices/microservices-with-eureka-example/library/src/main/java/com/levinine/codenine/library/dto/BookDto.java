@@ -1,6 +1,6 @@
-package com.levinine.codenine.library.dtos;
+package com.levinine.codenine.library.dto;
 
-import com.levinine.codenine.library.entities.Book;
+import com.levinine.codenine.library.entity.Book;
 
 public record BookDto(Long id, String title, Integer yearPublished) {
 

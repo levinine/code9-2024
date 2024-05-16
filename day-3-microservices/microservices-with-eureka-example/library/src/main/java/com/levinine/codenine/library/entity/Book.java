@@ -1,4 +1,4 @@
-package com.levinine.codenine.library.entities;
+package com.levinine.codenine.library.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

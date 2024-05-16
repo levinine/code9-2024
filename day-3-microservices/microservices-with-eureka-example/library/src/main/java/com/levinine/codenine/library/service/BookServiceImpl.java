@@ -1,8 +1,8 @@
-package com.levinine.codenine.library.services;
+package com.levinine.codenine.library.service;
 
-import com.levinine.codenine.library.dtos.GetAllBooksDto;
-import com.levinine.codenine.library.entities.Book;
-import com.levinine.codenine.library.repositories.BookRepository;
+import com.levinine.codenine.library.dto.GetAllBooksDto;
+import com.levinine.codenine.library.entity.Book;
+import com.levinine.codenine.library.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;

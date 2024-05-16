@@ -1,6 +1,6 @@
-package com.levinine.codenine.library.repositories;
+package com.levinine.codenine.library.repository;
 
-import com.levinine.codenine.library.entities.Book;
+import com.levinine.codenine.library.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 

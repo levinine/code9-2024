@@ -1,6 +1,6 @@
-package com.levinine.codenine.library.repositories;
+package com.levinine.codenine.library.repository;
 
-import com.levinine.codenine.library.entities.BookLoan;
+import com.levinine.codenine.library.entity.BookLoan;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,10 +1,10 @@
-package com.levinine.codenine.library.services;
+package com.levinine.codenine.library.service;
 
 import com.levinine.codenine.library.client.UserProfileServiceClient;
-import com.levinine.codenine.library.dtos.BookLoanDto;
-import com.levinine.codenine.library.dtos.LibraryMemberLoansDto;
-import com.levinine.codenine.library.dtos.UserProfileDto;
-import com.levinine.codenine.library.repositories.BookLoanRepository;
+import com.levinine.codenine.library.dto.BookLoanDto;
+import com.levinine.codenine.library.dto.LibraryMemberLoansDto;
+import com.levinine.codenine.library.dto.UserProfileDto;
+import com.levinine.codenine.library.repository.BookLoanRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;

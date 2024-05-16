@@ -1,6 +1,6 @@
 package com.levinine.codenine.library.client;
 
-import com.levinine.codenine.library.dtos.UserProfileDto;
+import com.levinine.codenine.library.dto.UserProfileDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
