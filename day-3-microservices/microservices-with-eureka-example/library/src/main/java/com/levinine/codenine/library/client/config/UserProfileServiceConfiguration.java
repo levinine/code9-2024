@@ -1,6 +1,6 @@
 package com.levinine.codenine.library.client.config;
 
-import com.levinine.codenine.library.exceptions.NotFoundException;
+import com.levinine.codenine.library.exception.NotFoundException;
 import feign.codec.ErrorDecoder;
 import org.springframework.context.annotation.Bean;
 

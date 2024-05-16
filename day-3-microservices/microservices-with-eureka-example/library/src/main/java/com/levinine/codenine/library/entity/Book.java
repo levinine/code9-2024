@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
@@ -20,4 +21,5 @@ public class Book {
 
     @Column(name = "year_published", nullable = false, columnDefinition = "INTEGER")
     private Integer yearPublished;
+
 }

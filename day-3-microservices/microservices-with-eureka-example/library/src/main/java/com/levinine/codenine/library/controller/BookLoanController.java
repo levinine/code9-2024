@@ -19,7 +19,7 @@ public class BookLoanController {
 
   @GetMapping
   public LibraryMemberLoansDto findAllByLibraryCardId(
-      @RequestParam @NotBlank String libraryCardId) {
+      @RequestParam @NotBlank final String libraryCardId) {
     return bookLoanService.findAllByLibraryCardId(libraryCardId);
   }
 

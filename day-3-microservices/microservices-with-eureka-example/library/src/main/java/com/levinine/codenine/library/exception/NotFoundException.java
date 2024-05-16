@@ -1,4 +1,4 @@
-package com.levinine.codenine.library.exceptions;
+package com.levinine.codenine.library.exception;
 
 public class NotFoundException extends Exception {
     public NotFoundException(String message) {
