@@ -3,7 +3,6 @@ package com.levinine.codenine.booking.converter;
 import com.levinine.codenine.booking.dto.PropertyDto;
 import com.levinine.codenine.booking.model.Property;
 import java.util.List;
-import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +35,7 @@ public class PropertyConverter {
   public List<PropertyDto> toDtoList(List<Property> properties) {
     return properties.stream()
         .map(this::toDto)
-        .collect(Collectors.toList());
+        .toList();
   }
 
 }
