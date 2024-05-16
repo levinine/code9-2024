@@ -12,7 +12,7 @@ public class GlobalExceptionHandler {
   @ExceptionHandler(EntityNotFoundException.class)
   public ResponseEntity<ErrorDetails> handleEntityNotFound(EntityNotFoundException ex) {
 
-    ErrorDetails errorDetails = ErrorDetails.builder()
+    final var errorDetails = ErrorDetails.builder()
         .status(HttpStatus.NOT_FOUND)
         .message(ex.getMessage())
         .build();

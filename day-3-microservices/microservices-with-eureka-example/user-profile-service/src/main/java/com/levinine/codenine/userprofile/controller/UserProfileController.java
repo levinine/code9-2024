@@ -17,12 +17,12 @@ public class UserProfileController {
   private final UserProfileService userProfileService;
 
   @GetMapping("/{id}")
-  public UserProfileDto findById(@PathVariable Long id) {
+  public UserProfileDto findById(@PathVariable final Long id) {
     return userProfileService.findUserProfileById(id);
   }
 
   @GetMapping
-  public UserProfileDto findByLibraryCardId(@RequestParam String libraryCardId) {
+  public UserProfileDto findByLibraryCardId(@RequestParam final String libraryCardId) {
     return userProfileService.findByLibraryCardId(libraryCardId);
   }
 
