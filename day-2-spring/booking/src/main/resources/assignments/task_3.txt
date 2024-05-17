@@ -1,0 +1,9 @@
+Task: 
+
+a: Enhance the booking logic to find a room by its ID and status AVAILABLE before proceeding further.
+
+b: After saving a booking, update the status of the room and save the updated room into database.
+
+c: Ensure that the entire booking process, including updating room status, works within a single transaction.
+
+d: Add validation for Booking Request

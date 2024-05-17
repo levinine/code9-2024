@@ -1,0 +1,40 @@
+Task: Implement the entire booking room logic, including creating a new Booking entity and saving bookings.
+
+Requirements:
+a: Entity: Define the Booking entity as described below:
+
+@Entity
+@Table(name = "booking")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class Booking {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
+
+  @ManyToOne
+  private Room room;
+
+  private LocalDate checkInDate;
+
+  private LocalDate checkOutDate;
+
+  private String guestName;
+
+  private String guestContactInfo;
+
+  private Integer numberOfGuests;
+
+}
+
+b: Create BookingDto
+  Note: all attributes will be the same as in Booking except Room. In BookingDto we want only roomId
+c: Converter: Create a converter class to convert DTOs to entities and vice versa.
+d: Controller: Create controller class and add endpoint to handle create booking request.
+e: Service: Create service class and implement the business logic to handle booking operations.
+  Note: first check if the room exist before saving the booking.
+f: Repository: save the booking to the database.
+g: convert saved booking into dto class and return response

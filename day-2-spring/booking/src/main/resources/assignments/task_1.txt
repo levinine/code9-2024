@@ -1,0 +1,8 @@
+Task: Implement a method to find a property by its ID. If the property is not found, throw EntityNotFoundException.
+
+Requirements:
+  Controller: Create an endpoint to handle request for finding a property by ID.
+  Service: Implement the business logic to find a property by ID.
+  Repository: fetch the property from the database by ID.
+  Exception: Handle exception for case where the property is not found.
+  Converter: convert found Property to PropertyDto class and return response
