@@ -6,3 +6,7 @@ Requirements:
   Repository: fetch the property from the database by ID.
   Exception: Handle exception for case where the property is not found.
   Converter: convert found Property to PropertyDto class and return response
+
+Test:
+  Write controller test where the property was successfully found(status expected 200)
+  Write controller test where the property was not found(status expected 404)

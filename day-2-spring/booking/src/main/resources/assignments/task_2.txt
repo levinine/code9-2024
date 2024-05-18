@@ -1,7 +1,7 @@
 Task: Implement the entire booking room logic, including creating a new Booking entity and saving bookings.
 
 Requirements:
-a: Entity: Define the Booking entity as described below:
+a: Entity: Define the Booking entity and BookingStatus enum as described below:
 
 @Entity
 @Table(name = "booking")
@@ -28,6 +28,13 @@ public class Booking {
 
   private Integer numberOfGuests;
 
+  @Enumerated(EnumType.STRING)
+  private BookingStatus status;
+
+}
+
+public enum BookingStatus {
+    PENDING, CONFIRMED, CANCELED, COMPLETED
 }
 
 b: Create BookingDto
