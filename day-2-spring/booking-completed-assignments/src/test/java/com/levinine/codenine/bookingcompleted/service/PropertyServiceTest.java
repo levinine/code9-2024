@@ -8,6 +8,7 @@ import com.levinine.codenine.bookingcompleted.model.Property;
 import com.levinine.codenine.bookingcompleted.model.Room;
 import com.levinine.codenine.bookingcompleted.model.RoomStatus;
 import com.levinine.codenine.bookingcompleted.repository.PropertyRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -16,9 +17,9 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
+import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -66,27 +67,25 @@ class PropertyServiceTest {
     }
   }
 
-// TODO: uncomment and run the tests after completing assignment number 1
+  @Test
+  void shouldFindProperty() {
+    Property property = buildProperty();
+    when(propertyRepository.findById(PROPERTY_ID)).thenReturn(Optional.of(property));
 
-//  @Test
-//  void shouldFindProperty() {
-//    Property property = buildProperty();
-//    when(propertyRepository.findById(PROPERTY_ID)).thenReturn(Optional.of(property));
-//
-//    PropertyDto propertyDto = propertyService.findProperty(PROPERTY_ID);
-//
-//    assertNotNull(propertyDto.getId());
-//  }
-//
-//  @Test
-//  void shouldNotFindProperty() {
-//    when(propertyRepository.findById(PROPERTY_ID)).thenReturn(Optional.empty());
-//
-//    Exception exception = assertThrows(EntityNotFoundException.class,
-//            ()-> propertyService.findProperty(PROPERTY_ID));
-//
-//    assertEquals(String.format("Property with id %s not found", PROPERTY_ID), exception.getMessage());
-//  }
+    PropertyDto propertyDto = propertyService.findProperty(PROPERTY_ID);
+
+    assertNotNull(propertyDto.getId());
+  }
+
+  @Test
+  void shouldNotFindProperty() {
+    when(propertyRepository.findById(PROPERTY_ID)).thenReturn(Optional.empty());
+
+    Exception exception = assertThrows(EntityNotFoundException.class,
+            ()-> propertyService.findProperty(PROPERTY_ID));
+
+    assertEquals(String.format("Property with id %s not found", PROPERTY_ID), exception.getMessage());
+  }
 
   private PropertyDto buildPropertyDto() {
     return PropertyDto.builder()

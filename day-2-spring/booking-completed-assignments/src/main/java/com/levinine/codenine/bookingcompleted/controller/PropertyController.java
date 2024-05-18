@@ -31,4 +31,10 @@ public class PropertyController {
         return propertyService.findAllProperties();
     }
 
+    @GetMapping(value = "/{id}")
+    public PropertyDto findProperty(@PathVariable("id") Integer propertyId) {
+        log.info("Finding property: {}", propertyId);
+        return propertyService.findProperty(propertyId);
+    }
+
 }

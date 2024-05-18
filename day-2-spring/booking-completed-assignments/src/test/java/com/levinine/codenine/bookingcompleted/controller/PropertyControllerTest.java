@@ -4,6 +4,7 @@ import com.levinine.codenine.bookingcompleted.dto.PropertyDto;
 import com.levinine.codenine.bookingcompleted.dto.RoomDto;
 import com.levinine.codenine.bookingcompleted.model.RoomStatus;
 import com.levinine.codenine.bookingcompleted.service.PropertyService;
+import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -54,6 +55,28 @@ class PropertyControllerTest {
             .andExpect(MockMvcResultMatchers.jsonPath("$[0].id").exists());
 
     verify(propertyService, times(1)).findAllProperties();
+  }
+
+  @Test
+  void shouldFindProperty() throws Exception {
+    PropertyDto property = buildPropertyDto();
+    when(propertyService.findProperty(PROPERTY_ID)).thenReturn(property);
+
+    mockMvc.perform(MockMvcRequestBuilders.get(String.format("/properties/%s", PROPERTY_ID)))
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andExpect(MockMvcResultMatchers.jsonPath("$.id").exists());
+
+    verify(propertyService, times(1)).findProperty(PROPERTY_ID);
+  }
+
+  @Test
+  void shouldNotFindProperty() throws Exception {
+    when(propertyService.findProperty(PROPERTY_ID)).thenThrow(new EntityNotFoundException());
+
+    mockMvc.perform(MockMvcRequestBuilders.get("/properties/" + PROPERTY_ID))
+            .andExpect(MockMvcResultMatchers.status().isNotFound());
+
+    verify(propertyService, times(1)).findProperty(PROPERTY_ID);
   }
 
   private String createPropertyRequest() {

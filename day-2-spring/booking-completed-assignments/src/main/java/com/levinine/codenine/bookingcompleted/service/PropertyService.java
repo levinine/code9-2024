@@ -4,6 +4,7 @@ import com.levinine.codenine.bookingcompleted.converter.PropertyConverter;
 import com.levinine.codenine.bookingcompleted.dto.PropertyDto;
 import com.levinine.codenine.bookingcompleted.model.Property;
 import com.levinine.codenine.bookingcompleted.repository.PropertyRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -29,4 +30,12 @@ public class PropertyService {
     log.info("All properties returned from database");
     return propertyConverter.toDtoList(properties);
   }
+
+  public PropertyDto findProperty(Integer propertyId) {
+    Property property = propertyRepository.findById(propertyId).orElseThrow(
+            () -> new EntityNotFoundException(
+                    String.format("Property with id: %s not found", propertyId)));
+    return propertyConverter.toDto(property);
+  }
+
 }
