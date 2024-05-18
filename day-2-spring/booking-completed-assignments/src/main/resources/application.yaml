@@ -1,3 +1,23 @@
 spring:
   application:
     name: booking-completed
+  datasource:
+    url: jdbc:h2:mem:booking
+    username: admin
+    password:
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  sql:
+    init:
+      mode: embedded
+
+server:
+  port: 8080

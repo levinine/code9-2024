@@ -34,7 +34,7 @@ public class Booking {
 }
 
 public enum BookingStatus {
-    PENDING, CONFIRMED, CANCELED, COMPLETED
+    CONFIRMED, CANCELED, COMPLETED
 }
 
 b: Create BookingDto
