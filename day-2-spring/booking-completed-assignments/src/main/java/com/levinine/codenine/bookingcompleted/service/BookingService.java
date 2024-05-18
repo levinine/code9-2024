@@ -37,4 +37,19 @@ public class BookingService {
         return bookingConverter.toDto(savedBooking);
     }
 
+    @Transactional
+    public BookingDto cancelBooking(Integer bookingId) {
+        Booking booking = bookingRepository.findByIdAndStatus(bookingId, BookingStatus.CONFIRMED).orElseThrow(
+                () -> new EntityNotFoundException(String.format("Confirmed booking with id: %s not found", bookingId)));
+        Room room = roomRepository.findByIdAndStatus(booking.getRoom().getId(), RoomStatus.BOOKED).orElseThrow(
+                () -> new EntityNotFoundException(
+                        String.format("Booked room with id: %s not found", booking.getRoom().getId())));
+        booking.setStatus(BookingStatus.CANCELED);
+        bookingRepository.save(booking);
+        room.setStatus(RoomStatus.AVAILABLE);
+        roomRepository.save(room);
+        log.info("Booking with id: {} canceled", booking.getId());
+        return bookingConverter.toDto(booking);
+    }
+
 }
