@@ -4,17 +4,17 @@
   "contactPhone": "345-433-023",
   "rooms" : [
     {
-      "roomNumber": 601,
+      "roomNumber": "601F",
       "price": 234,
       "status": "AVAILABLE"
     },
     {
-      "roomNumber": 602,
+      "roomNumber": "602G",
       "price": 550,
       "status": "AVAILABLE"
     },
     {
-      "roomNumber": 603,
+      "roomNumber": "603H",
       "price": 1000,
       "status": "AVAILABLE"
     }

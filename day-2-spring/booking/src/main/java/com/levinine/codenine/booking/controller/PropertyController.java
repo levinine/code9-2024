@@ -2,8 +2,10 @@ package com.levinine.codenine.booking.controller;
 
 import com.levinine.codenine.booking.dto.PropertyDto;
 import com.levinine.codenine.booking.service.PropertyService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,12 +14,13 @@ import java.util.List;
 @RequestMapping("/properties")
 @AllArgsConstructor
 @Slf4j
+@Validated
 public class PropertyController {
 
   private final PropertyService propertyService;
 
   @PostMapping
-  public PropertyDto createProperty(@RequestBody PropertyDto propertyDto) {
+  public PropertyDto createProperty(@Valid @RequestBody PropertyDto propertyDto) {
     log.info("Saving new property: {}", propertyDto.getName());
     return propertyService.saveProperty(propertyDto);
   }

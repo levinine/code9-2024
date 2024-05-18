@@ -1,11 +1,6 @@
 package com.levinine.codenine.booking.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,10 +21,11 @@ public class Room {
     @ManyToOne
     private Property property;
 
-    private Integer roomNumber;
+    private String roomNumber;
 
     private Double price;
 
+    @Enumerated(EnumType.STRING)
     private RoomStatus status;
 
 }

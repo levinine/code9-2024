@@ -95,7 +95,7 @@ class PropertyServiceTest {
         .address("Main Lane 22A")
         .contactPhone("89-45-34")
         .rooms(List.of(RoomDto.builder()
-            .roomNumber(1)
+            .roomNumber("1")
             .price(100.00)
             .status(RoomStatus.AVAILABLE)
             .build()))
@@ -111,7 +111,7 @@ class PropertyServiceTest {
         .build();
     property.setRooms(List.of(Room.builder()
         .property(property)
-        .roomNumber(1)
+        .roomNumber("1")
         .price(100.00)
         .status(RoomStatus.AVAILABLE)
         .build()));

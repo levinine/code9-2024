@@ -81,7 +81,7 @@ class PropertyControllerTest {
         .address("Main Lane 22A")
         .contactPhone("89-45-34")
         .rooms(List.of(RoomDto.builder()
-            .roomNumber(1)
+            .roomNumber("1")
             .price(100.00)
             .status(RoomStatus.AVAILABLE)
             .build()))
