@@ -1,0 +1,13 @@
+Implement the ability to cancel a booking
+
+a: Create an /DELETE endpoint to handle booking cancellation request( by bookingId )
+d: Check if the booking can be canceled;
+   Note: you need to check if the Booking can be canceled, and also status of the room should be BOOKED
+   if this above fails throw EntityNotFoundException
+c: Implement the business logic to cancel a booking(update booking status) and update room status.
+d: Save booking and room with updated status fields in a single transaction
+e: convert booking to dto
+f: return response
+
+Additional task:
+should we refactor BookingService class?

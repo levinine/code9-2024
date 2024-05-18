@@ -15,6 +15,17 @@ import java.util.List;
 @Slf4j
 public class PropertyService {
 
+
+  /**
+   *
+   *    Napravljen je novi repository sa svim resenim zadacima
+   *      zadaci se nalaze u resources/assignments
+   *      za treci zadatak imate request koji trebate poslati u postman body -> u resources/requests
+   *    koristite ovaj projekat za resavanje zadataka, pa uporedite vasa resenja sa nasim
+   *    Note: nije moranje da resenja budu ista, bitno je samo da rade
+   *
+   * */
+
   private final PropertyRepository propertyRepository;
   private final PropertyConverter propertyConverter;
 
