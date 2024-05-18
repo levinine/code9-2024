@@ -10,8 +10,12 @@ import com.levinine.codenine.booking.dto.PropertyDto;
 import com.levinine.codenine.booking.dto.RoomDto;
 import com.levinine.codenine.booking.model.Property;
 import com.levinine.codenine.booking.model.Room;
+import com.levinine.codenine.booking.model.RoomStatus;
 import com.levinine.codenine.booking.repository.PropertyRepository;
 import java.util.List;
+import java.util.Optional;
+
+import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -48,6 +52,43 @@ class PropertyServiceTest {
     assertEquals(PROPERTY_ID, savedProperty.getId());
   }
 
+  @Test
+  void shouldFindAllProperties() {
+    // Given
+    when(propertyRepository.findAll()).thenReturn(List.of(buildProperty()));
+
+    // When
+    List<PropertyDto> properties = propertyService.findAllProperties();
+
+    // Then
+    assertEquals(1, properties.size());
+    for (PropertyDto property : properties) {
+      assertNotNull(property.getId());
+    }
+  }
+
+// TODO: uncomment and run the tests after completing assignment number 1
+
+//  @Test
+//  void shouldFindProperty() {
+//    Property property = buildProperty();
+//    when(propertyRepository.findById(PROPERTY_ID)).thenReturn(Optional.of(property));
+//
+//    PropertyDto propertyDto = propertyService.findProperty(PROPERTY_ID);
+//
+//    assertNotNull(propertyDto.getId());
+//  }
+//
+//  @Test
+//  void shouldNotFindProperty() {
+//    when(propertyRepository.findById(PROPERTY_ID)).thenReturn(Optional.empty());
+//
+//    Exception exception = assertThrows(EntityNotFoundException.class,
+//            ()-> propertyService.findProperty(PROPERTY_ID));
+//
+//    assertEquals(String.format("Property with id %s not found", PROPERTY_ID), exception.getMessage());
+//  }
+
   private PropertyDto buildPropertyDto() {
     return PropertyDto.builder()
         .name("Laguna Hotel")
@@ -56,7 +97,7 @@ class PropertyServiceTest {
         .rooms(List.of(RoomDto.builder()
             .roomNumber(1)
             .price(100.00)
-            .status("AVAILABLE")
+            .status(RoomStatus.AVAILABLE)
             .build()))
         .build();
   }
@@ -72,7 +113,7 @@ class PropertyServiceTest {
         .property(property)
         .roomNumber(1)
         .price(100.00)
-        .status("AVAILABLE")
+        .status(RoomStatus.AVAILABLE)
         .build()));
     return property;
   }

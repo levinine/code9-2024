@@ -1,5 +1,6 @@
 package com.levinine.codenine.booking.dto;
 
+import com.levinine.codenine.booking.model.RoomStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +20,6 @@ public class RoomDto {
 
   private Double price;
 
-  private String status;
+  private RoomStatus status;
 
 }

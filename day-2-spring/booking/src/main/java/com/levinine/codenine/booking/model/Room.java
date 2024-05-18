@@ -30,6 +30,6 @@ public class Room {
 
     private Double price;
 
-    private String status;
+    private RoomStatus status;
 
 }

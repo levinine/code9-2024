@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 
 import com.levinine.codenine.booking.dto.PropertyDto;
 import com.levinine.codenine.booking.dto.RoomDto;
+import com.levinine.codenine.booking.model.RoomStatus;
 import com.levinine.codenine.booking.service.PropertyService;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -43,6 +44,19 @@ class PropertyControllerTest {
     verify(propertyService, times(1)).saveProperty(any(PropertyDto.class));
   }
 
+  @Test
+  void shouldFindAllProperties() throws Exception {
+    PropertyDto property = buildPropertyDto();
+    when(propertyService.findAllProperties()).thenReturn(List.of(property));
+
+    mockMvc.perform(MockMvcRequestBuilders.get("/properties"))
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andExpect(MockMvcResultMatchers.jsonPath("$").isArray())
+            .andExpect(MockMvcResultMatchers.jsonPath("$[0].id").exists());
+
+    verify(propertyService, times(1)).findAllProperties();
+  }
+
   private String createPropertyRequest() {
     return """
         {
@@ -69,7 +83,7 @@ class PropertyControllerTest {
         .rooms(List.of(RoomDto.builder()
             .roomNumber(1)
             .price(100.00)
-            .status("AVAILABLE")
+            .status(RoomStatus.AVAILABLE)
             .build()))
         .build();
   }

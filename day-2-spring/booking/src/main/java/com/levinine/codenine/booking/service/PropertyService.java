@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 @Slf4j
@@ -22,4 +24,9 @@ public class PropertyService {
     return propertyConverter.toDto(property);
   }
 
+  public List<PropertyDto> findAllProperties() {
+    List<Property> properties = propertyRepository.findAll();
+    log.info("All properties returned from database");
+    return propertyConverter.toDtoList(properties);
+  }
 }
