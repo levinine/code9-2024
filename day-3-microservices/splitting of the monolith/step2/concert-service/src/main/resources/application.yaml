@@ -3,11 +3,11 @@ server:
 
 spring:
   application:
-    name: library-service
+    name: concert-service
   datasource:
-    url: jdbc:h2:mem:library
+    url: jdbc:h2:mem:concert
     username: admin
-    password: admin
+    password:
     driverClassName: org.h2.Driver
   h2:
     console:
