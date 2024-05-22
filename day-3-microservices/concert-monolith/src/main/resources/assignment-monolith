@@ -3,7 +3,8 @@ Split the ‘concert-monolith’ monolithic application into microservices.
 
 Steps:
 -Step1:
-	-Extract the ‘ticket’ logic from the application into a separate microservice called ‘ticket-service’
+	-Extract the ‘ticket’ logic from the application into a separate microservice called ‘ticket-service’. 
+	After this step, the application and exposed endpoints should work the same.
 -Step2:
 	-After step one is done, extract the ‘customer’ logic from the application into a separate micro service called ’customer-service’
 	-Rename the monolithic application (what is left of it) to ‘concert-service’, since the remaining code should be responsible only for the ‘concert’ logic.
