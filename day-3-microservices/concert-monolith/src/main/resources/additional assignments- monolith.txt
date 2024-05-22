@@ -1,0 +1,3 @@
+Additional assignments:
+
+-Use Liquibase for table and data creation.
