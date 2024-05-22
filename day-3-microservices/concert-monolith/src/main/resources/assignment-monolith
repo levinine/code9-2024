@@ -1,0 +1,69 @@
+Assignments:
+Split the ‘concert-monolith’ monolithic application into microservices.
+
+Steps:
+-Step1:
+	-Extract the ‘ticket’ logic from the application into a separate microservice called ‘ticket-service’
+-Step2:
+	-After step one is done, extract the ‘customer’ logic from the application into a separate micro service called ’customer-service’
+	-Rename the monolithic application (what is left of it) to ‘concert-service’, since the remaining code should be responsible only for the ‘concert’ logic.
+
+Hints:
+
+-The outcome of this excercise is that the interface of the application and and its logic remains the same.
+
+-To create a new microservice, feel free to use the official Spring-boot initializer: https://start.spring.io/
+
+-The dependencies that need to be added into the newly created services are :
+
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+<dependency>
+	<groupId>com.h2database</groupId>
+	<artifactId>h2</artifactId>
+	<scope>runtime</scope>
+</dependency>
+<dependency>
+	<groupId>org.projectlombok</groupId>
+	<artifactId>lombok</artifactId>
+	<optional>true</optional>
+</dependency>
+
+-The following dependencies will need to exist in monolithic application (or later the service that calls other services):
+
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
+
+<dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-dependencies</artifactId>
+			<version>${spring-cloud.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
+
+Spring-cloud.version can be f.e. ‘2023.0.1’
+
+-The application.yaml that exists in the monolith needs to be added to the new services as well.
+
+-The data.sql in different forms will have to exist in all 3 services, because now each service is responsible for different tables.
+
+-The services must run on different ports, otherwise they will clash and won’t work.
+
+-@EnableFeignClients and @FeignClients(url*, name) annotations will need to be used, where the url* represents the address of the service that is being called.
+
+-Entities that are connected to other entities with object and JPA annotations (f.e. @ManyToOne) might need to be changed to scalar IDs, to reduce the data amount between services. 
+This will require changes in the code.
