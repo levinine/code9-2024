@@ -1,0 +1,32 @@
+-Add the liquibase dependencies to the pom file:
+
+<dependency>
+  <groupId>org.liquibase</groupId>
+  <artifactId>liquibase-core</artifactId>
+</dependency>
+
+-Add the following changes to the application.yaml config file:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update (change to 'none')
+
+  remove the line : defer-datasource-initialization: true
+
+  add to the file (root level):
+
+  logging:
+    level:
+      liquibase: INFO
+
+-Create a file called 'db.changelog-master.yaml' to the 'resources.db.changelog' package
+-Create the changelog files in 'resources.db.changelog.changes' package
+(Note: these are the default locations, if we want to use these files in a different location,
+addition properties need to be defined in the 'application.yaml' file)
+
+-Remove the old 'data.sql' file from the 'resources' folder.
+
+-Open localhost:8080/h2 to see the database.
+
+
