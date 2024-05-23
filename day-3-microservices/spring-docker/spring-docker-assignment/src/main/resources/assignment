@@ -1,0 +1,3 @@
+Create an image using Dockerfile called spring-docker-image
+run Container from image created in previous step using docker-compose.yaml, on container port 8086
+call container from the browser and check response
