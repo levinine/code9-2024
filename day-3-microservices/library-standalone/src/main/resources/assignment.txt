@@ -29,4 +29,18 @@ addition properties need to be defined in the 'application.yaml' file)
 
 -Open localhost:8080/h2 to see the database.
 
+Hints:
+
+When the changeset is being added as an XML file, the header
+and the root element looks like this:
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+//TODO: add changeset
+</databaseChangeLog>
+
 
