@@ -31,7 +31,15 @@ addition properties need to be defined in the 'application.yaml' file)
 
 Hints:
 
-When the changeset is being added as an XML file, the header
+-If your changelog file is not in the default folder, a property can be defined to point to it:
+
+spring.liquibase.change-log=classpath:db/changelog/db.changelog-master.yaml
+
+-If for some reason liquibase is not turned on by default, a property can enable it:
+
+spring.liquibase.enabled=true
+
+-When the changeset is being added as an XML file, the header
 and the root element looks like this:
 
 <?xml version="1.0" encoding="UTF-8" ?>
