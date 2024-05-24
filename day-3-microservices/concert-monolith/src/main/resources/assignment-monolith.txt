@@ -14,7 +14,7 @@ Hints:
 -The outcome of this excercise is that the interface of the applicatio and its logic remains the same.
 
 -To create a new microservice, feel free to use the official Spring-boot initializer: https://start.spring.io/
- The service should be set up with: Java21, Maven, Jar,	Spring-boot 3.2.5.
+ The service should be set up with: Java21, Maven, Jar
  Dependencies that should be added with the initializer are: Spring web, Jpa, H2 database and Lombok.
 
 

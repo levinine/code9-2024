@@ -1,3 +1,4 @@
 Additional assignments:
 
 -Use Liquibase for table and data creation.
+-Dockerize one or all of the service.
