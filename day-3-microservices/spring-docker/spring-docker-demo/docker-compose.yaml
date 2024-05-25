@@ -1,0 +1,6 @@
+version: "3"
+services:
+  spring-docker-demo-service:
+    image: spring-docker-demo
+    ports:
+      - "8080:8084"
